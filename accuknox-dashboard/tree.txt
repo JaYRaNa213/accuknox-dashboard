@@ -1,0 +1,30 @@
+accuknox-dashboard
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── vite.svg
+├── README.md
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── AddWidgetDialog.jsx
+│   │   ├── CategoryPanel.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── EditCategoryMembersDialog.jsx
+│   │   ├── SearchBar.jsx
+│   │   └── WidgetCard.jsx
+│   ├── data
+│   │   └── initialData.json
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   └── store
+│       ├── dashboardSlice.js
+│       └── store.js
+├── tree.cjs
+└── vite.config.js

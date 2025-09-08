@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "id": "cspm-executive",
+      "name": "CSPM Executive Dashboard",
+      "widgetIds": ["w-1", "w-2"]
+    },
+    {
+      "id": "security-overview",
+      "name": "Security Overview",
+      "widgetIds": ["w-3"]
+    },
+    {
+      "id": "ops",
+      "name": "Operations",
+      "widgetIds": []
+    }
+  ],
+  "widgets": [
+    {
+      "id": "w-1",
+      "name": "Compliance Status",
+      "text": "Shows compliance score across cloud accounts (dummy text)."
+    },
+    {
+      "id": "w-2",
+      "name": "Top Risks",
+      "text": "List of top 5 risks found in the last 24 hours (dummy text)."
+    },
+    {
+      "id": "w-3",
+      "name": "Incidents",
+      "text": "Recent incidents summary (dummy text)."
+    }
+  ]
+}
