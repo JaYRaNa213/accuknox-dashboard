@@ -10,7 +10,7 @@ This project simulates a **cloud security executive dashboard** where categories
 
 ## Preview
 
-![Dashboard Screenshot]
+### Dashboard Screenshot
 
 <img src="./accuknox-dashboard/src/assets/Dashboard.png" alt="Dashboard" width="800"/>
 
