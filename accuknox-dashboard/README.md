@@ -54,6 +54,7 @@ This project was developed as an assignment for AccuKnox.
    - Classification: Critical, High, Medium, Low priority issues
    - Comprehensive security overview
 ---
+```
 ## Project Structure
 accuknox-dashboard/
 ├── .gitignore
@@ -88,7 +89,7 @@ accuknox-dashboard/
 ├── tree.cjs
 ├── tree.txt
 └── vite.config.js
-
+```
 ---
 ## Installation and Setup
 ### Prerequisites
@@ -98,34 +99,35 @@ accuknox-dashboard/
 ```bash
 git clone https://github.com/JaYRaNa213/accuknox-dashboard.git
 cd accuknox-dashboard
-Step 2: Install Dependencies
+```
+## Step 2: Install Dependencies
 npm install
-Step 3: Development Mode
+## Step 3: Development Mode
 npm run dev
-Application will be available at: http://localhost:5173
+## Application will be available at: http://localhost:5173
 
-Step 4: Production Build
+## Step 4: Production Build
 npm run build
 npm run preview
 This generates an optimized production build and starts a preview server.
 
-Future Development Roadmap
-Phase 1: Enhanced Security
+## Future Development Roadmap
+### Phase 1: Enhanced Security
 Authentication system implementation
 Role-based access control
-Phase 2: Expanded Visualization
+### Phase 2: Expanded Visualization
 Additional chart types (Bar charts, Line graphs, Heatmaps)
 Custom chart configuration options
-Phase 3: Backend Integration
+### Phase 3: Backend Integration
 Database integration for persistent storage
 API endpoints for dynamic data management
-Phase 4: User Experience
+### Phase 4: User Experience
 Dark mode toggle functionality
 Advanced customization options
 Project Information
 Assignment Project for AccuKnox
 Cloud Security Dashboard Implementation
 
-Author: [Your Name]
+Author: Jay Prakash
 Project Type: Frontend Dashboard Application
 Primary Focus: Cloud Security Visualization and Management
