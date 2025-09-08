@@ -1,82 +1,59 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "@mui/icons-material/Edit";
-import { removeWidgetFromCategory } from "../store/dashboardSlice";
 import WidgetCard from "./WidgetCard";
-import AddWidgetDialog from "./AddWidgetDialog";
-import EditCategoryMembersDialog from "./EditCategoryMembersDialog";
+import AddWidgetCard from "./AddWidgetCard";
 
-export default function CategoryPanel({ category }) {
-  const widgets = useSelector((s) => s.dashboard.widgets);
-  const dispatch = useDispatch();
-  const [addOpen, setAddOpen] = useState(false);
-  const [editOpen, setEditOpen] = useState(false);
-
-  const widgetObjects = category.widgetIds
-    .map((id) => widgets.find((w) => w.id === id))
-    .filter(Boolean);
+export default function CategoryPanel({ category, onAddWidget }) {
+  // Dummy widgets for now
+  const widgets = [
+    { id: "1", name: "Cloud Accounts", type: "pie" },
+    { id: "2", name: "Cloud Account Risk Assessment", type: "pie" },
+  ];
 
   return (
-    <>
-      <Card variant="outlined">
-        <CardHeader
-          title={category.name}
-          action={
-            <Box display="flex" alignItems="center">
-              <IconButton aria-label="edit" onClick={() => setEditOpen(true)}>
-                <EditIcon />
-              </IconButton>
-              <Button
-                startIcon={<AddIcon />}
-                size="small"
-                onClick={() => setAddOpen(true)}
-              >
-                Add Widget
-              </Button>
-            </Box>
-          }
-        />
-        <CardContent>
-          <Grid container spacing={2}>
-            {widgetObjects.length === 0 && (
-              <Grid item xs={12}>
-                <Box color="text.secondary">No widgets in this category.</Box>
-              </Grid>
-            )}
+    <Card
+    
+      variant="outlined"
+      sx={{
+        width: "180%",
+        borderRadius: 3,
+        bgcolor: "#bbd5e9ff",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+        minHeight: 1,
+      }}
+    >
+      <CardHeader
+  title={category.name}
+  titleTypographyProps={{
+    fontSize: "1rem",      // change font size
+    fontWeight: "bold",      // make bold
+    lineHeight: 1,         // adjust height
+    fontFamily: "Poppins, sans-serif", // custom font
+    color: "#6486ceff",        // custom color (optional)
+  }}
+  sx={{
+    bgcolor: "#ffffffff",
+    // borderBottom: "1px solid #e5e7eb",
+    px: 3,
+    py: 1,
+  }}
+/>
 
-            {widgetObjects.map((w) => (
-              <Grid item xs={12} key={w.id}>
-                <WidgetCard
-                  widget={w}
-                  onRemove={() =>
-                    dispatch(removeWidgetFromCategory({ categoryId: category.id, widgetId: w.id }))
-                  }
-                />
-              </Grid>
-            ))}
+      <CardContent sx={{ p: 3 }}>
+        <Grid container spacing={3}>
+          {widgets.map((w) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={w.id}>
+              <WidgetCard widget={w} />
+            </Grid>
+          ))}
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <AddWidgetCard onClick={onAddWidget} />
           </Grid>
-        </CardContent>
-      </Card>
-
-      <AddWidgetDialog
-        open={addOpen}
-        onClose={() => setAddOpen(false)}
-        categoryId={category.id}
-      />
-
-      <EditCategoryMembersDialog
-        open={editOpen}
-        onClose={() => setEditOpen(false)}
-        category={category}
-      />
-    </>
+        </Grid>
+      </CardContent>
+    </Card>
   );
 }
