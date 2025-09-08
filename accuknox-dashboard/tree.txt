@@ -10,15 +10,12 @@ accuknox-dashboard
 ├── src
 │   ├── App.jsx
 │   ├── assets
-│   │   └── react.svg
+│   │   └── Dashboard.png
 │   ├── components
-│   │   ├── AddWidgetCard.jsx
 │   │   ├── AddWidgetDialog.jsx
-│   │   ├── AddWidgetDrawer.jsx
 │   │   ├── AddWidgetRightSideBar.jsx
 │   │   ├── CategoryPanel.jsx
 │   │   ├── DashboardHeader.jsx
-│   │   ├── EditCategoryMembersDialog.jsx
 │   │   ├── SearchBar.jsx
 │   │   ├── WidgetCard.jsx
 │   │   └── WidgetLibraryDrawer.jsx
