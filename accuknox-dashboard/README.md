@@ -1,140 +1,131 @@
-# AccuKnox Dashboard (Assignment)
-
+# AccuKnox Dashboard Assignment
 ## Live Demo
-[https://accuknox-dashboard-amber.vercel.app/](https://accuknox-dashboard-amber.vercel.app/)
-
-A customizable **Dashboard Application** built with **React, Vite, Material UI, and Redux Toolkit**.  
-This project simulates a **cloud security executive dashboard** where categories and widgets can be dynamically added, removed, and visualized with charts (Pie Charts, Risk Assessments, Security Issues, etc.).
-
+[AccuKnox Dashboard](https://accuknox-dashboard-amber.vercel.app/)
 ---
-
+## Overview
+AccuKnox Dashboard is a customizable Cloud Security Executive Dashboard built with modern frontend technologies. The application enables users to dynamically manage categories and widgets, visualize security insights through interactive charts, and perform comprehensive searches across dashboard components.
+This project was developed as an assignment for AccuKnox.
+---
 ## Preview
-
-
-<img src="./src/assets/Dashboard.png" alt="Dashboard" width="800"/>
-
-
-## Tech Stack
-
-- React + Vite — Fast frontend development  
-- Material UI (MUI) — UI components and styling  
-- Redux Toolkit — State management  
-- Recharts — Pie charts and visualizations  
-
+![Dashboard Screenshot](./src/assets/Dashboard.png)
 ---
-
-## Getting Started
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/JaYRaNa213/accuknox-dashboard.git
-cd accuknox-dashboard
-2. Install dependencies
-bash
-Copy code
-npm install
-3. Run locally (development mode)
-bash
-Copy code
-npm run dev
-The app will be available at:
-http://localhost:5173
-
-Build for Production
-bash
-Copy code
-npm run build
-npm run preview
-This will generate an optimized build and start a preview server.
-
-Features
-Dynamic Categories and Widgets
-
-Categories and widgets are loaded from src/data/initialData.json via Redux.
-
-Each category (CSPM, CWPP, Registry Scan, etc.) contains one or more widgets.
-
-Widget Types
-
-Text Widgets → Display information text.
-
-Pie Chart Widgets → Display risk assessments, issues, and status distribution.
-
-Widget Management
-
-Add new widgets (via dialog / sidebar)
-
-Remove widgets (via close button)
-
-Edit category members
-
-Global Search
-
-Search across all widgets and categories instantly.
-
-Responsive UI
-
-Grid layout adapts to all screen sizes.
-
-Uses MUI’s responsive system.
-
-Example Widgets
-Cloud Accounts → Shows connected vs not connected accounts (Pie Chart)
-
-Cloud Account Risk Assessment → Pass / Fail / Warning summary (Pie Chart)
-
-Workload Alerts → CPU, Memory, Network, Storage alerts (Pie Chart)
-
-Image Risk Assessment → Vulnerabilities by severity (Pie Chart)
-
-Image Security Issues → Critical, High, Medium, Low issues (Pie Chart)
-
-Project Structure
-php
-Copy code
-accuknox-dashboard
+## Technology Stack
+| Technology | Purpose |
+|-----------|---------|
+| React + Vite | Fast and efficient frontend development |
+| Material UI (MUI) | Prebuilt UI components and responsive design |
+| Redux Toolkit | State management for categories and widgets |
+| Recharts | Data visualization including pie charts and risk assessments |
+---
+## Core Features
+### 1. Dynamic Categories and Widgets
+- Categories loaded from `src/data/initialData.json` using Redux
+- Support for multiple categories (CSPM, CWPP, Registry Scan)
+- Each category contains one or more configurable widgets
+### 2. Widget Types
+- **Text Widgets**: Display informational content
+- **Pie Chart Widgets**: Visualize risk assessments, issues, and status distribution
+### 3. Widget Management
+- Add new widgets through dialog interfaces or sidebar
+- Remove widgets using integrated close buttons
+- Edit category membership and configuration
+### 4. Global Search Functionality
+- Real-time search across all widgets and categories
+- Instant filtering and results display
+### 5. Responsive Design
+- Grid-based layout system
+- Seamless adaptation to all screen sizes
+- Material UI responsive design implementation
+---
+## Example Widget Implementations
+1. **Cloud Accounts**
+   - Visualization: Pie Chart
+   - Data: Connected vs. not connected accounts
+2. **Cloud Account Risk Assessment**
+   - Display: Summary format
+   - Categories: Pass, Fail, Warning status
+3. **Workload Alerts**
+   - Monitoring: CPU, Memory, Network, Storage
+   - Alert level classification
+4. **Image Risk Assessment**
+   - Analysis: Vulnerabilities by severity level
+   - Visual representation of security status
+5. **Image Security Issues**
+   - Classification: Critical, High, Medium, Low priority issues
+   - Comprehensive security overview
+---
+## Project Structure
+accuknox-dashboard/
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
 ├── package-lock.json
 ├── package.json
-├── public
-│   └── vite.svg
+├── public/
+│ └── vite.svg
 ├── README.md
-├── src
-│   ├── App.jsx
-│   ├── assets
-│   │   └── react.svg
-│   ├── components
-│   │   ├── AddWidgetDialog.jsx
-│   │   ├── AddWidgetRightSideBar.jsx
-│   │   ├── CategoryPanel.jsx
-│   │   ├── DashboardHeader.jsx
-│   │   ├── SearchBar.jsx
-│   │   ├── WidgetCard.jsx
-│   │   └── WidgetLibraryDrawer.jsx
-│   ├── data
-│   │   └── initialData.json
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   └── DashboardPage.jsx
-│   └── store
-│       ├── dashboardSlice.js
-│       └── store.js
+├── src/
+│ ├── App.jsx
+│ ├── assets/
+│ │ └── Dashboard.png
+│ ├── components/
+│ │ ├── AddWidgetDialog.jsx
+│ │ ├── AddWidgetRightSideBar.jsx
+│ │ ├── CategoryPanel.jsx
+│ │ ├── DashboardHeader.jsx
+│ │ ├── SearchBar.jsx
+│ │ ├── WidgetCard.jsx
+│ │ └── WidgetLibraryDrawer.jsx
+│ ├── data/
+│ │ └── initialData.json
+│ ├── index.css
+│ ├── main.jsx
+│ ├── pages/
+│ │ └── DashboardPage.jsx
+│ └── store/
+│ ├── dashboardSlice.js
+│ └── store.js
 ├── tree.cjs
 ├── tree.txt
 └── vite.config.js
 
-Future Improvements
-Authentication & role-based dashboard access
+---
+## Installation and Setup
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm or yarn package manager
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/JaYRaNa213/accuknox-dashboard.git
+cd accuknox-dashboard
+Step 2: Install Dependencies
+npm install
+Step 3: Development Mode
+npm run dev
+Application will be available at: http://localhost:5173
 
-More chart types (bar, line, heatmap)
+Step 4: Production Build
+npm run build
+npm run preview
+This generates an optimized production build and starts a preview server.
 
-Backend integration (store widgets in DB instead of JSON)
+Future Development Roadmap
+Phase 1: Enhanced Security
+Authentication system implementation
+Role-based access control
+Phase 2: Expanded Visualization
+Additional chart types (Bar charts, Line graphs, Heatmaps)
+Custom chart configuration options
+Phase 3: Backend Integration
+Database integration for persistent storage
+API endpoints for dynamic data management
+Phase 4: User Experience
+Dark mode toggle functionality
+Advanced customization options
+Project Information
+Assignment Project for AccuKnox
+Cloud Security Dashboard Implementation
 
-Dark mode toggle
-
-Author
-Built with ❤️ by [Your Name]
-Assignment for AccuKnox — Cloud Security Dashboard
+Author: [Your Name]
+Project Type: Frontend Dashboard Application
+Primary Focus: Cloud Security Visualization and Management
