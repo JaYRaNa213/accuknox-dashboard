@@ -8,8 +8,10 @@ AccuKnox Dashboard is a customizable Cloud Security Executive Dashboard built wi
 This project was developed as an assignment for AccuKnox.
 ---
 ## Preview
-![Dashboard Screenshot](./src/assets/Dashboard.png)
-<img src="./src/assets/Dashboard.png" ,width:800/>
+
+
+<img src="./src/assets/Dashboard.png" alt="Dashboard" width="800"/>
+
 ---
 ## Technology Stack
 | Technology | Purpose |
