@@ -1,6 +1,7 @@
 # AccuKnox Dashboard Assignment
 ## Live Demo
 [AccuKnox Dashboard](https://accuknox-dashboard-amber.vercel.app/)
+
 ---
 ## Overview
 AccuKnox Dashboard is a customizable Cloud Security Executive Dashboard built with modern frontend technologies. The application enables users to dynamically manage categories and widgets, visualize security insights through interactive charts, and perform comprehensive searches across dashboard components.
@@ -8,6 +9,7 @@ This project was developed as an assignment for AccuKnox.
 ---
 ## Preview
 ![Dashboard Screenshot](./src/assets/Dashboard.png)
+<img src="./src/assets/Dashboard.png" ,width:800/>
 ---
 ## Technology Stack
 | Technology | Purpose |
@@ -101,14 +103,16 @@ git clone https://github.com/JaYRaNa213/accuknox-dashboard.git
 cd accuknox-dashboard
 ```
 ## Step 2: Install Dependencies
-npm install
+```npm install```
 ## Step 3: Development Mode
-npm run dev
-## Application will be available at: http://localhost:5173
+```npm run dev```
+
+### Application will be available at: http://localhost:5173
 
 ## Step 4: Production Build
-npm run build
+```npm run build
 npm run preview
+```
 This generates an optimized production build and starts a preview server.
 
 ## Future Development Roadmap
@@ -127,7 +131,8 @@ Advanced customization options
 Project Information
 Assignment Project for AccuKnox
 Cloud Security Dashboard Implementation
-
+```
 Author: Jay Prakash
 Project Type: Frontend Dashboard Application
 Primary Focus: Cloud Security Visualization and Management
+```
