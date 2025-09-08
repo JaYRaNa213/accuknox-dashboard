@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 export default function AddWidgetCard({ onClick }) {
   return (
     <Card variant="outlined" sx={{ height: "100%" ,width: "300%" }}>
-      <CardActionArea sx={{ height: "100%", width: "100%" }} onClick={onClick}>
+      <CardActionArea sx={{ height: "200%", width: "100%" }} onClick={onClick}>
         <CardContent>
           <Box
             display="flex"

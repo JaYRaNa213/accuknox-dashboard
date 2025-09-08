@@ -1,13 +1,48 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --muted: #8e94a6;
+  --accent: #1f2b6c;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
-body {
-  background: #f5f7fb;
+  font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
 }
 
 .app-container {
-  padding: 24px;
+  padding: 20px 28px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
+
+.header-spacer {
+  height: 16px;
+}
+
+/* Card style used across panels to match the soft rounded look */
+.panel {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(13, 26, 62, 0.03);
+}
+
+/* Add widget tile */
+.add-tile {
+  min-width: 220px;
+  height: 120px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px dashed rgba(13, 26, 62, 0.06);
+  background: linear-gradient(180deg, rgba(250,250,255,0.6), rgba(240,246,255,0.6));
+}
+
+/* small helper */
+.small-muted { color: var(--muted); font-size: 13px; }

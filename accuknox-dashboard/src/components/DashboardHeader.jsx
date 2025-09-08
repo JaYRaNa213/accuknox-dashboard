@@ -1,95 +1,83 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Tooltip from "@mui/material/Tooltip";
+import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 
-export default function DashboardHeader({ onAddWidget }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [filter, setFilter] = useState("Last 2 days");
-
-  const handleOpen = (e) => setAnchorEl(e.currentTarget);
-  const handleClose = () => setAnchorEl(null);
-  const handleSelect = (value) => {
-    setFilter(value);
-    handleClose();
-  };
-
+export default function DashboardHeader({ onAdd, onRefresh, onSearch }) {
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      flexWrap="wrap"
-      px={2}
-      py={2}
-      sx={{ backgroundColor: "background.paper", borderRadius: 2 }}
-    >
-      {/* Title */}
-      <Typography variant="h5" fontWeight="bold">
-        CNAPP Dashboard
-      </Typography>
-
-      {/* Action Buttons */}
-      <Box display="flex" alignItems="center" gap={2} flexWrap="wrap">
-        <TextField
-          placeholder="Search anything..."
-          size="small"
-          sx={{ minWidth: 250 }}
-        />
-
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          size="medium"
-          sx={{ textTransform: "none" }}
-          onClick={onAddWidget}
-        >
-          Add Widget
-        </Button>
-
-        <IconButton
-          color="primary"
-          size="medium"
+    <AppBar position="static" color="transparent" elevation={0} sx={{ mb: 2 }}>
+      <Toolbar sx={{ px: 0 }}>
+        <Box
           sx={{
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 1.5,
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            width: "100%",
           }}
         >
-          <RefreshIcon />
-        </IconButton>
+          {/* Left Section - Breadcrumb */}
+          <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
+            Home
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 700, color: "text.primary", ml: 1 }}
+          >
+            Dashboard
+          </Typography>
 
-        <Button
-          variant="outlined"
-          size="medium"
-          sx={{ minWidth: 140, textTransform: "none" }}
-          onClick={handleOpen}
-        >
-          {filter}
-        </Button>
+          {/* Spacer */}
+          <Box sx={{ flex: 1 }} />
 
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={() => handleSelect("Last 2 days")}>
-            Last 2 days
-          </MenuItem>
-          <MenuItem onClick={() => handleSelect("Last 7 days")}>
-            Last 7 days
-          </MenuItem>
-          <MenuItem onClick={() => handleSelect("Last 30 days")}>
-            Last 30 days
-          </MenuItem>
-        </Menu>
-      </Box>
-    </Box>
+          {/* Search Bar */}
+          <TextField
+            size="small"
+            placeholder="Search anything..."
+            onChange={(e) => onSearch && onSearch(e.target.value)}
+            sx={{
+              width: 360,
+              background: "#fff",
+              borderRadius: 1,
+            }}
+          />
+
+          {/* Add Widget Button */}
+          <Tooltip title="Add widget">
+            <Button
+              variant="contained"
+              startIcon={<AddIcon />}
+              onClick={onAdd}
+              sx={{
+                ml: 2,
+                bgcolor: "green",
+                textTransform: "none",
+                fontWeight: 600,
+                borderRadius: "8px",
+                px: 2,
+                "&:hover": {
+                  bgcolor: "darkgreen",
+                },
+              }}
+            >
+              Add Widget
+            </Button>
+          </Tooltip>
+
+          {/* Refresh Button */}
+          <Tooltip title="Refresh">
+            <IconButton onClick={onRefresh}>
+              <RefreshIcon />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 }

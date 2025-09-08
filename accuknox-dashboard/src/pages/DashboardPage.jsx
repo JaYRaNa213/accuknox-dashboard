@@ -2,49 +2,66 @@ import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { useSelector, useDispatch } from "react-redux";
+
 import CategoryPanel from "../components/CategoryPanel";
 import DashboardHeader from "../components/DashboardHeader";
-import AddWidgetDrawer from "../components/AddWidgetDrawer";
+import AddWidgetDialog from "../components/AddWidgetDialog";
+import AddWidgetRightSideBar from "../components/AddWidgetRightSideBar";
+import { resetDashboard } from "../store/dashboardSlice";
 
 export default function DashboardPage() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const categories = useSelector((s) => s.dashboard.categories);
+  const dispatch = useDispatch();
 
-  const categories = [
-    { id: "cspm", name: "CSPM Executive Dashboard" },
-    { id: "cwpp", name: "CWPP Dashboard" },
-    { id: "registry", name: "Registry Scan" },
-  ];
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [addDialogCategory, setAddDialogCategory] = useState(null);
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerCategoryId, setDrawerCategoryId] = useState(null);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleOpenAddDialog = (categoryId) => {
+    setAddDialogCategory(categoryId);
+    setAddDialogOpen(true);
+  };
 
   return (
-    <Container
-      maxWidth={false}
-      disableGutters
-      sx={{
-        px: 0,
-        py: 0,
-        width: "100%",
-        bgcolor: "#f9fafb", // light background
-        minHeight: "100vh",
-      }}
-    >
-      <DashboardHeader onAddWidget={() => setDrawerOpen(true)} />
+    <Container className="app-container" maxWidth={false}>
+      <DashboardHeader
+        onAdd={() => {
+          setDrawerCategoryId(categories[0]?.id || null);
+          setDrawerOpen(true);
+        }}
+        onRefresh={() => dispatch(resetDashboard())}
+        onSearch={(q) => setSearchQuery(q)}
+      />
 
-      <Box mt={0}>
-        <Grid container spacing={0}>
-          {categories.map((cat) => (
-            <Grid item xs={10} key={cat.id}>
-              <CategoryPanel
-                category={cat}
-                onAddWidget={() => setDrawerOpen(true)}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <Box className="header-spacer" />
 
-      <AddWidgetDrawer
+      <Grid container spacing={3}>
+        {categories.map((c) => (
+          <Grid item xs={12} key={c.id}>
+            <CategoryPanel
+              categoryId={c.id}
+              onAddWidget={(categoryId) => handleOpenAddDialog(categoryId)}
+              searchQuery={searchQuery}
+            />
+          </Grid>
+        ))}
+      </Grid>
+
+      <AddWidgetDialog
+        open={addDialogOpen}
+        categoryId={addDialogCategory}
+        onClose={() => setAddDialogOpen(false)}
+      />
+
+      <AddWidgetRightSideBar
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+        defaultCategoryId={drawerCategoryId}
       />
     </Container>
   );

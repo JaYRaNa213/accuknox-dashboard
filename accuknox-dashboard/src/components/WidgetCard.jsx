@@ -2,90 +2,76 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { PieChart, Pie, Cell, Tooltip } from "recharts";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
-export default function WidgetCard({ widget }) {
-  const pieData = [
-    { name: "Connected", value: 2, color: "#1976d2" },
-    { name: "Not Connected", value: 2, color: "#e0e0e0" },
-  ];
+const COLORS = ["#e74c3c", "#f39c12", "#f1c40f", "#2ecc71", "#3498db", "#9b59b6"];
 
-  const riskData = [
-    { name: "Failed", value: 1058, color: "#d32f2f" },
-    { name: "Warning", value: 58, color: "#fbc02d" },
-    { name: "Not Available", value: 28, color: "#9e9e9e" },
-    { name: "Passed", value: 7293, color: "#388e3c" },
-  ];
-
-  const renderLegend = (data) => (
-    <Box display="flex" flexDirection="column" ml={10}>
-      {data.map((entry, index) => (
-        <Box key={index} display="flex" alignItems="center" mb={0.5}>
-          <Box
-            sx={{
-              width: 12,
-              height: 12,
-              bgcolor: entry.color,
-              borderRadius: "50%",
-              mr: 1,
-            }}
-          />
-          <Typography variant="body2" color="text.secondary">
-            {entry.name}: <strong>{entry.value}</strong>
-          </Typography>
-        </Box>
-      ))}
-    </Box>
-  );
-
-  const chartData =
-    widget.name === "Cloud Accounts"
-      ? pieData
-      : widget.name === "Cloud Account Risk Assessment"
-      ? riskData
-      : [];
+export default function WidgetCard({ widget, onRemove }) {
+  const isPieChart = widget.chartType === "pie" && widget.data;
 
   return (
     <Card
       variant="outlined"
       sx={{
-        height: 220,
-        width: 550,
-      
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        width: 360,
+        minHeight: 220,
+        position: "relative",
         borderRadius: 2,
-        boxShadow: "0 1px 6px rgba(0,0,0,0.08)",
+        boxShadow: "0 6px 18px rgba(15, 23, 42, 0.05)"
       }}
     >
-      <CardContent sx={{ flex: 1 }}>
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          sx={{ fontWeight: "bold", mb: 2 }}
-        >
+      <IconButton
+        size="small"
+        onClick={() => onRemove(widget.id)}
+        sx={{ position: "absolute", top: 8, right: 8 }}
+        aria-label="remove widget"
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+
+      <CardContent>
+        <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
           {widget.name}
         </Typography>
-        <Box display="flex" alignItems="center" justifyContent="center">
-          <PieChart width={140} height={140}>
-            <Pie
-              data={chartData}
-              cx="50%"
-              cy="50%"
-              innerRadius={35}
-              outerRadius={55}
-              dataKey="value"
-            >
-              {chartData.map((entry, idx) => (
-                <Cell key={`cell-${idx}`} fill={entry.color} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-          {renderLegend(chartData)}
-        </Box>
+
+        {isPieChart ? (
+          <ResponsiveContainer width="100%" height={180}>
+            <PieChart>
+              <Pie
+                data={widget.data}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                innerRadius={50}
+                outerRadius={70}
+                label
+              >
+                {widget.data.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend verticalAlign="bottom" height={30} />
+            </PieChart>
+          </ResponsiveContainer>
+        ) : (
+          <Typography variant="body2" color="text.secondary">
+            {widget.text}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

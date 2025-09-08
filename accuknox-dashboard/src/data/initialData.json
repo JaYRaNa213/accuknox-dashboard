@@ -1,36 +1,99 @@
 {
   "categories": [
     {
-      "id": "cspm-executive",
+      "id": "cspm",
       "name": "CSPM Executive Dashboard",
       "widgetIds": ["w-1", "w-2"]
     },
     {
-      "id": "security-overview",
-      "name": "Security Overview",
-      "widgetIds": ["w-3"]
+      "id": "cwpp",
+      "name": "CWPP Dashboard",
+      "widgetIds": ["w-3", "w-6"]
     },
     {
-      "id": "ops",
-      "name": "Operations",
+      "id": "registry",
+      "name": "Registry Scan",
+      "widgetIds": ["w-4", "w-5"]
+    },
+    {
+      "id": "image",
+      "name": "Image",
+      "widgetIds": []
+    },
+    {
+      "id": "ticket",
+      "name": "Ticket",
       "widgetIds": []
     }
   ],
   "widgets": [
     {
       "id": "w-1",
-      "name": "Compliance Status",
-      "text": "Shows compliance score across cloud accounts (dummy text)."
+      "name": "Cloud Accounts",
+      "text": "Shows connected cloud accounts and connection status.",
+      "chartType": "pie",
+      "data": [
+        { "name": "Connected", "value": 2 },
+        { "name": "Not Connected", "value": 1 }
+      ]
     },
     {
       "id": "w-2",
-      "name": "Top Risks",
-      "text": "List of top 5 risks found in the last 24 hours (dummy text)."
+      "name": "Cloud Account Risk Assessment",
+      "text": "Pass/Fail/Warn summary across accounts.",
+      "chartType": "pie",
+      "data": [
+        { "name": "Failed", "value": 969 },
+        { "name": "Warning", "value": 381 },
+        { "name": "Not Available", "value": 38 },
+        { "name": "Passed", "value": 7253 }
+      ]
     },
     {
       "id": "w-3",
+      "name": "Top 5 Namespace Alerts",
+      "text": "Top namespace-specific alerts in last 24 hours."
+    },
+    {
+      "id": "w-4",
+      "name": "Image Risk Assessment",
+      "text": "Summary of image vulnerabilities found in scanning.",
+      "chartType": "pie",
+      "data": [
+        { "name": "Critical", "value": 12 },
+        { "name": "High", "value": 50 },
+        { "name": "Medium", "value": 200 },
+        { "name": "Low", "value": 300 }
+      ]
+    },
+    {
+      "id": "w-5",
+      "name": "Image Security Issues",
+      "text": "High/Medium/Low issues per image.",
+      "chartType": "pie",
+      "data": [
+        { "name": "Critical", "value": 2 },
+        { "name": "High", "value": 15 },
+        { "name": "Medium", "value": 100 },
+        { "name": "Low", "value": 500 }
+      ]
+    },
+    {
+      "id": "w-6",
+      "name": "Workload Alerts",
+      "text": "Workload level alerts and event distribution.",
+      "chartType": "pie",
+      "data": [
+        { "name": "CPU Alerts", "value": 30 },
+        { "name": "Memory Alerts", "value": 45 },
+        { "name": "Network Alerts", "value": 15 },
+        { "name": "Storage Alerts", "value": 10 }
+      ]
+    },
+    {
+      "id": "w-7",
       "name": "Incidents",
-      "text": "Recent incidents summary (dummy text)."
+      "text": "Recent incidents and brief statuses."
     }
   ]
 }

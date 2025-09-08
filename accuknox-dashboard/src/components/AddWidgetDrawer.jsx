@@ -25,7 +25,7 @@ export default function AddWidgetDrawer({ open, onClose }) {
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
-      <Box sx={{ width: 500, p: 3 }}>
+      <Box sx={{ width: 800, p: 3 }}>
         <Typography variant="h6" gutterBottom>
           Add Widget
         </Typography>

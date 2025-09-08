@@ -12,19 +12,25 @@ accuknox-dashboard
 │   ├── assets
 │   │   └── react.svg
 │   ├── components
+│   │   ├── AddWidgetCard.jsx
 │   │   ├── AddWidgetDialog.jsx
+│   │   ├── AddWidgetDrawer.jsx
+│   │   ├── AddWidgetRightSideBar.jsx
 │   │   ├── CategoryPanel.jsx
-│   │   ├── Dashboard.jsx
+│   │   ├── DashboardHeader.jsx
 │   │   ├── EditCategoryMembersDialog.jsx
 │   │   ├── SearchBar.jsx
-│   │   └── WidgetCard.jsx
+│   │   ├── WidgetCard.jsx
+│   │   └── WidgetLibraryDrawer.jsx
 │   ├── data
 │   │   └── initialData.json
 │   ├── index.css
 │   ├── main.jsx
 │   ├── pages
+│   │   └── DashboardPage.jsx
 │   └── store
 │       ├── dashboardSlice.js
 │       └── store.js
 ├── tree.cjs
+├── tree.txt
 └── vite.config.js
