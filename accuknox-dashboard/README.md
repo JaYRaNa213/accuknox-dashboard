@@ -10,7 +10,6 @@ This project simulates a **cloud security executive dashboard** where categories
 
 ## Preview
 
-![Dashboard Screenshot](./src/assets/Dashboard.png)
 
 <img src="./src/assets/Dashboard.png" alt="Dashboard" width="800"/>
 
